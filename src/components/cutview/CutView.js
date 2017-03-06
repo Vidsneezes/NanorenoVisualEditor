@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './CutView.css';
+import CutBlock from './cutblock/CutBlock.js'
 
-class ChaptersView extends Component {
+class CutView extends Component {
   render() {
     return (
       <div className="c-content">
@@ -9,47 +10,16 @@ class ChaptersView extends Component {
           <h2>Cuts</h2>
         </div>
         <ul className="c-list">
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          <li>actor text</li>
-          
+          <CutBlock contentAlign="cut-content-left"/>
+          <CutBlock contentAlign="cut-content-left"/>
+          <CutBlock contentAlign="cut-content-right"/>
+          <CutBlock contentAlign="cut-content-right"/>
+          <CutBlock contentAlign="cut-content-left"/>
+          <CutBlock contentAlign="cut-content-right"/>
         </ul>
       </div>
     );
   }
 }
 
-export default ChaptersView;
+export default CutView;
