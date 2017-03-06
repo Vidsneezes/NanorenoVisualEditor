@@ -6,13 +6,46 @@ class ChaptersView extends Component {
     return (
       <div className="c-content">
         <div className="c-title">
-          <h2>Hello</h2>
+          <h2>Cuts</h2>
         </div>
         <ul className="c-list">
           <li>actor text</li>
           <li>actor text</li>
           <li>actor text</li>
           <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          <li>actor text</li>
+          
         </ul>
       </div>
     );

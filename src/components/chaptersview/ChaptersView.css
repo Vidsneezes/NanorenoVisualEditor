@@ -1,11 +1,7 @@
-.cv-content {
-  text-align: center;
-  width: 20%;
-  border: 3px solid gray;
-  height: 99vh;
-}
-
 .cv-title{
-  border: 1px solid blue;
+  border: 1px solid cyan;
+  background-color: cyan;
+  background-size: 100%;
   font-family: sans-serif;
+  text-align: center;
 }

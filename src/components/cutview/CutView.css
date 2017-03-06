@@ -1,11 +1,14 @@
-.c-content {
+
+.c-title {
+  border: 1px solid lightgray;
+  background-color: lightgray;
+  background-size: 100%;
+  font-family: sans-serif;
   text-align: center;
-  width: 75%;
-  border: 3px solid gray;
-  height: 99vh;
+  
 }
 
-.c-title{
-  border: 1px solid blue;
-  font-family: sans-serif;
+.c-list {
+  height: 80vh;
+  overflow-y: scroll;
 }

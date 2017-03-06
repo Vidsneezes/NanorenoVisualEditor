@@ -7,8 +7,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ChaptersView />
-        <CutView />
+        <div className="App-ChapterView">
+          <ChaptersView />
+        </div>
+        <div className="App-CutView">
+          <CutView />
+        </div>
       </div>
     );
   }

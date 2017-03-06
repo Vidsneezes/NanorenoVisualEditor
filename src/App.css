@@ -1,11 +1,19 @@
 .App {
-  display: inline;   
+  background-color: darkgray;
+  height: 100vh;
 }
 
 .App-ChapterView {
   float: left;
+  width: 20%;
+  background: darkcyan;
+  height: 95vh;
 }
 
 .App-CutView {
+  position: relative;
   float: right;
+  width: 80%;
+  background: dimgray;
+  height: 95vh;
 }
