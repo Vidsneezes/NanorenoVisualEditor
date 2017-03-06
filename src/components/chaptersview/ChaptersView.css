@@ -1,0 +1,11 @@
+.cv-content {
+  text-align: center;
+  width: 20%;
+  border: 3px solid gray;
+  height: 99vh;
+}
+
+.cv-title{
+  border: 1px solid blue;
+  font-family: sans-serif;
+}

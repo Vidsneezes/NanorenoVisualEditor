@@ -1,0 +1,11 @@
+.c-content {
+  text-align: center;
+  width: 75%;
+  border: 3px solid gray;
+  height: 99vh;
+}
+
+.c-title{
+  border: 1px solid blue;
+  font-family: sans-serif;
+}
