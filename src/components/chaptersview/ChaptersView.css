@@ -1,7 +1,12 @@
+.cv-content-list {
+  padding: 0px;
+  
+}
+
 .cv-title{
   border: 1px solid cyan;
   background-color: cyan;
   background-size: 100%;
-  font-family: sans-serif;
   text-align: center;
+  box-shadow: 1px 6px 8px 3px rgba(0, 0, 0,0.15);
 }

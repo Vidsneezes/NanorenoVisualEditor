@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ChapterElement from './chapterelement/ChapterElement.js';
 import './ChaptersView.css';
 
 class ChaptersView extends Component {
@@ -9,10 +10,10 @@ class ChaptersView extends Component {
           <h2>Chapters</h2>
         </div>
         <ul className="cv-content-list">
-          <li>A Chest Turns To ruin.</li>
-          <li>Fire sweeps the nation.</li>
-          <li>Lead leads on.</li>
-          <li>Crush Fire.</li>
+          <ChapterElement chapterName="Rise One" />
+          <ChapterElement chapterName="Evil Be on Done" />
+          <ChapterElement chapterName="Clash of river" />
+          <ChapterElement chapterName="Clash of river alt route 1" />
         </ul>
       </div>
     );

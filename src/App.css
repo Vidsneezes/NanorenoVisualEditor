@@ -1,19 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
 .App {
-  background-color: darkgray;
+  background-color: lightcyan;
   height: 100vh;
+  font-family: 'Merriweather', serif;
 }
 
 .App-ChapterView {
   float: left;
   width: 25%;
   background: darkcyan;
-  height: 95vh;
+  height: 100%;
+  z-index: 3;
 }
 
 .App-CutView {
+  box-shadow: 1px 6px 8px 3px rgba(0, 0, 0, 0.2) inset;
   position: relative;
   margin-left:25%;
-  background: dimgray;
-  height: 95vh;
+  background: lightcyan;
+  height: 100%
 }
 
