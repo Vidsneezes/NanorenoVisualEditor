@@ -14,24 +14,16 @@ class CutBlock extends Component {
   constructor(props){
     super(props);
     this.state = {
-      actor: this.props.cutData.actor,
-      emotion: this.props.cutData.emotion,
-      text: this.props.cutData.text,
-      side: this.props.cutData.side,
       key: this.props.cutData.key
     }
     this.handleSideChange = this.handleSideChange.bind(this);
-    this.handleActorNameChange = this.handleActorNameChange.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleAddCutBelow = this.handleAddCutBelow.bind(this);
     this.handleRemoveCurrentCut = this.handleRemoveCurrentCut.bind(this);
   }
 
   handleSideChange(){
     const newData = this.props.handleSideChange(this.state.key);
-    this.setState({
-      side: newData.side
-    });
   }
 
   handleAddCutBelow(){
@@ -42,29 +34,20 @@ class CutBlock extends Component {
     this.props.removeCurrentCut(this.state.key);
   }
 
-  handleActorNameChange(event) {
-    this.setState({
-      actor: event.target.value
-    })
+  handleChange(event) {
+    this.props.handleDataChange(event.target.name,this.state.key,event.target.value);
   }
-
-  handleTextChange(event) {
-    this.setState({
-      text: event.target.value
-    })
-  }
-
   renderFocused(){
     return (
       <li className="cut-element" >
-        <div className={"cut-content-"+this.state.side}>
+        <div className={"cut-content-"+this.props.cutData.side}>
           <div className="cut-meta">
-            <input className="<input-actor></input-actor>name" type="text" placeholder="actorname" value={this.state.actor} onChange={this.handleActorNameChange}/>
-            <Dropbox className="dropbox-emotion" value={this.state.emotion} list={emotions}/>
+            <input name="actor" className="<input-actor></input-actor>name" type="text" placeholder="actorname" value={this.props.cutData.actor} onChange={this.handleChange}/>
+            <Dropbox name="emotion" className="dropbox-emotion" value={this.props.cutData.emotion} list={emotions} handleChange={this.handleChange}/>
             <button className="button-side" onClick={this.handleSideChange}>{"<-->"}</button>
           </div>
           <div>
-            <textarea className="textarea-dialogue" placeholder="dialogue goes here" value={this.state.text} onChange={this.handleTextChange}/>
+            <textarea name="text" className="textarea-dialogue" placeholder="dialogue goes here" value={this.props.cutData.text} onChange={this.handleChange}/>
           </div>
         </div>
         <div className="cut-addbutton">

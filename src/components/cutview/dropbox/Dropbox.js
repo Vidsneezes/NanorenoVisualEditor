@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 
 class Dropbox extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-        value: this.props.value
-    }
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event){
-      this.setState({
-          value: event.target.value
-      });
-  }
 
   render() {
     const list = this.props.list.map((valuem) =>
@@ -22,7 +8,7 @@ class Dropbox extends Component {
     );
 
     return (
-      <select value={this.state.value} onChange={this.handleChange}>
+      <select name={this.props.name} value={this.props.value} onChange={this.props.handleChange}>
           {list}
       </select>
     );

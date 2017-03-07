@@ -3,10 +3,6 @@ import './CutView.css';
 import CutBlock from './cutblock/CutBlock.js'
 
 class CutView extends Component {
-  constructor(props){
-    super(props);
-  }
-
   render() {
     var count = 0;
     const cuts = this.props.cutData.map((data)=>
@@ -14,9 +10,10 @@ class CutView extends Component {
                 cutData={data} 
                 handleSideChange={this.props.handleSideChange} 
                 addCutBelow={this.props.addCutBelow}
-                removeCurrentCut={this.props.removeCurrentCut}/>
+                removeCurrentCut={this.props.removeCurrentCut}
+                handleDataChange={this.props.handleDataChange}
+                />
     );
-
     return (
       <div className="c-content">
         <div className="c-title">

@@ -18,6 +18,7 @@ class App extends Component {
     this.AutoSelectTextArea = this.AutoSelectTextArea.bind(this);
     this.AddCutBelow = this.AddCutBelow.bind(this);
     this.RemoveCurrentCut = this.RemoveCurrentCut.bind(this);
+    this.handleDataChange = this.handleDataChange.bind(this);
   }
 
   handleSideChange(key) {
@@ -36,7 +37,21 @@ class App extends Component {
     this.setState({
       cutData: DataJson.data
     });
-    return newData;
+  }
+
+  handleDataChange(property,key,newValue){
+    let newData = {};
+    for(var i =0; i < DataJson.data.length;i++){
+      if(DataJson.data[i].key === key){
+        DataJson.data[i][property] = newValue;
+        newData = DataJson.data[i];
+        break;
+      }
+    }
+
+    this.setState({
+      cutData: DataJson.data
+    });
   }
 
   AddCutBelow(key) {
@@ -113,6 +128,7 @@ class App extends Component {
                    handleSideChange={this.handleSideChange}
                    addCutBelow={this.AddCutBelow}
                    removeCurrentCut={this.RemoveCurrentCut}
+                   handleDataChange={this.handleDataChange}
                    />
         </div>
         
