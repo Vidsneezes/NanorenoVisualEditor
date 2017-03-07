@@ -15,6 +15,7 @@ class App extends Component {
   }
 
   handleData(key) {
+    let newData = {};
     for(var i =0; i < DataJson.data.length;i++){
       if(DataJson.data[i].key === key){
         if(DataJson.data[i].side === "right"){
@@ -22,12 +23,14 @@ class App extends Component {
         }else if(DataJson.data[i].side === "left"){
           DataJson.data[i].side = "right";
         } 
+        newData = DataJson.data[i];
         break;
       }
     }
     this.setState({
       cutData: DataJson.data
     });
+    return newData;
   }
 
   render() {

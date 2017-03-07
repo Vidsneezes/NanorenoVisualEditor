@@ -5,25 +5,34 @@ class CutBlock extends Component {
   constructor(props){
     super(props);
     this.state = {
-      focus: false
+      data: this.props.cutData
     }
-    this.handleClick = this.handleClick.bind(this);
+    this.changeSide = this.changeSide.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleClick(){
-    this.props.handleData(this.props.cutData.key);
+  changeSide(){
+    const newData = this.props.handleData(this.state.data.key);
+    this.setState({
+      data: newData
+    });
+  }
+
+  handleInputChange() {
+
   }
 
   renderFocused(){
     return (
-      <li className="cut-element" onClick={this.handleClick}>
-        <div className={"cut-content-"+this.props.cutData.side}>
+      <li className="cut-element" >
+        <div className={"cut-content-"+this.state.data.side}>
           <div className="cut-meta">
-            <input className="input-actorname" type="text" placeholder="actorname" value={this.props.cutData.skit}/>
-            <input className="input-emotion" type="text" placeholder="emotion" value={this.props.cutData.emotion}/>
+            <input className="input-actorname" type="text" placeholder="actorname" value={this.state.data.skit}/>
+            <input className="input-emotion" type="text" placeholder="emotion" value={this.state.data.emotion}/>
+            <button className="button-side" onClick={this.changeSide}>{"<-->"}</button>
           </div>
           <div>
-            <textarea className="textarea-dialogue" value="This is but a set back in the great war" placeholder="dialogue goes here" value={this.props.cutData.text}/>
+            <textarea className="textarea-dialogue" placeholder="dialogue goes here" value={this.state.data.text}/>
           </div>
         </div>
       </li>
@@ -32,7 +41,7 @@ class CutBlock extends Component {
 
   renderUnfocused(){
     return (
-      <li className="cut-element" onClick={this.handleClick}>
+      <li className="cut-element">
         <div className={this.props.contentAlign}>
           <h2>Actor Name</h2>
           <p>This is but a set back in the great land.</p>
