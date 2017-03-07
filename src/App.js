@@ -14,9 +14,17 @@ class App extends Component {
     this.handleData = this.handleData.bind(this);
   }
 
-  handleData() {
-    DataJson.data[0].side = "left";
-    console.log(DataJson.data);
+  handleData(key) {
+    for(var i =0; i < DataJson.data.length;i++){
+      if(DataJson.data[i].key === key){
+        if(DataJson.data[i].side === "right"){
+          DataJson.data[i].side = "left";
+        }else if(DataJson.data[i].side === "left"){
+          DataJson.data[i].side = "right";
+        } 
+        break;
+      }
+    }
     this.setState({
       cutData: DataJson.data
     });

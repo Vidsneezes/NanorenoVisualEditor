@@ -1,6 +1,4 @@
-class DataJson {
-  
-}
+class DataJson {}
 
 DataJson.data = [
   {

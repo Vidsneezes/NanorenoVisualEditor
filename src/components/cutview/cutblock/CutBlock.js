@@ -11,7 +11,7 @@ class CutBlock extends Component {
   }
 
   handleClick(){
-    this.props.handleData();
+    this.props.handleData(this.props.cutData.key);
   }
 
   renderFocused(){
