@@ -11,10 +11,10 @@ class App extends Component {
     this.state = {
       cutData: DataJson.data
     }
-    this.handleData = this.handleData.bind(this);
+    this.handleSideChange = this.handleSideChange.bind(this);
   }
 
-  handleData(key) {
+  handleSideChange(key) {
     let newData = {};
     for(var i =0; i < DataJson.data.length;i++){
       if(DataJson.data[i].key === key){
@@ -40,7 +40,7 @@ class App extends Component {
           <ChaptersView />
         </div>
         <div className="App-CutView">
-          <CutView cutData={this.state.cutData} handleData={this.handleData}/>
+          <CutView cutData={this.state.cutData} handleSideChange={this.handleSideChange}/>
         </div>
       </div>
     );

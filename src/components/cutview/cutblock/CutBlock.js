@@ -5,34 +5,40 @@ class CutBlock extends Component {
   constructor(props){
     super(props);
     this.state = {
-      data: this.props.cutData
+      actor: this.props.cutData.actor,
+      emotion: this.props.cutData.emotion,
+      text: this.props.cutData.text,
+      side: this.props.cutData.side,
+      key: this.props.cutData.key
     }
-    this.changeSide = this.changeSide.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSideChange = this.handleSideChange.bind(this);
+    this.handleActorNameChange = this.handleActorNameChange.bind(this);
   }
 
-  changeSide(){
-    const newData = this.props.handleData(this.state.data.key);
+  handleSideChange(){
+    const newData = this.props.handleSideChange(this.state.key);
     this.setState({
-      data: newData
+      side: newData.side
     });
   }
 
-  handleInputChange() {
-
+  handleActorNameChange(event) {
+    this.setState({
+      actor: event.target.value
+    })
   }
 
   renderFocused(){
     return (
       <li className="cut-element" >
-        <div className={"cut-content-"+this.state.data.side}>
+        <div className={"cut-content-"+this.state.side}>
           <div className="cut-meta">
-            <input className="input-actorname" type="text" placeholder="actorname" value={this.state.data.skit}/>
-            <input className="input-emotion" type="text" placeholder="emotion" value={this.state.data.emotion}/>
-            <button className="button-side" onClick={this.changeSide}>{"<-->"}</button>
+            <input className="input-actorname" type="text" placeholder="actorname" value={this.state.actor} onChange={this.handleActorNameChange}/>
+            <input className="input-emotion" type="text" placeholder="emotion" value={this.state.emotion}/>
+            <button className="button-side" onClick={this.handleSideChange}>{"<-->"}</button>
           </div>
           <div>
-            <textarea className="textarea-dialogue" placeholder="dialogue goes here" value={this.state.data.text}/>
+            <textarea className="textarea-dialogue" placeholder="dialogue goes here" value={this.state.text}/>
           </div>
         </div>
       </li>
