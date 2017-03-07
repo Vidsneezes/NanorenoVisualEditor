@@ -10,11 +10,14 @@ class App extends Component {
     super(props);
     this.state = {
       cutData: DataJson.data,
-      copyData: ""
+      copyData: "",
+      totalCuts: 900
     }
     this.handleSideChange = this.handleSideChange.bind(this);
     this.ExportData = this.ExportData.bind(this);
     this.AutoSelectTextArea = this.AutoSelectTextArea.bind(this);
+    this.AddCutBelow = this.AddCutBelow.bind(this);
+    this.RemoveCutCurrent = this.RemoveCutCurrent.bind(this);
   }
 
   handleSideChange(key) {
@@ -36,6 +39,49 @@ class App extends Component {
     return newData;
   }
 
+  AddCutBelow(key) {
+    let keyIndex = -1;
+    for(var i =0; i < DataJson.data.length;i++){
+      if(DataJson.data[i].key === key){
+        keyIndex = i;
+        break;
+      }
+    }
+    if(keyIndex === -1){
+      return;
+    }
+    const newTotalCuts = this.state.totalCuts + 1;
+    const defaultData =   {
+      "actor": "SchoolgirlA",
+      "emotion": "sad",
+      "text": "Dialog number one",
+      "key":"dfk" + newTotalCuts,
+      "side":"right"
+    };
+    DataJson.data.splice(keyIndex,0,defaultData);
+    this.setState({
+      cutDate: DataJson.data,
+      totalCuts: newTotalCuts
+    });
+  }
+
+  RemoveCutCurrent(key){
+    let keyIndex = -1;
+    for(var i =0; i < DataJson.data.length;i++){
+      if(DataJson.data[i].key === key){
+        keyIndex = i;
+        break;
+      }
+    }
+    if(keyIndex === -1){
+      return;
+    }
+    DataJson.data.splice(keyIndex,1);
+    this.setState({
+      cutDate: DataJson.data
+    });
+  }
+
   ExportData() {
     var simpleData = DataJson.data.map(function(data){
       const dataN = {
@@ -48,6 +94,7 @@ class App extends Component {
     this.setState({
       copyData: str
     });
+    this.RemoveCutCurrent("dfk");
   }
 
   AutoSelectTextArea() {
