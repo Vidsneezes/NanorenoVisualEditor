@@ -9,29 +9,38 @@ const sampleJson = [
     "skit": "SchoolgirlA",
     "emotion": "sad",
     "text": "Dialog number one",
-    "key":"dfk"
+    "key":"dfk",
+    "side":"right"
   },
   {
     "skit": "SchoolgirlA",
     "emotion": "happy",
     "text": "Dialog number two",
-    "key":"fd"
+    "key":"fd",
+    "side":"left"
   },
   {
     "skit": "SchoolgirlB",
     "emotion": "worry",
     "text": "Dialog number three",
-    "key":"eee"
+    "key":"eee",
+    "side":"right"
   },
   {
     "skit": "SchoolgirlB",
     "emotion": "punchline",
     "text": "punchline",
-    "key":"cc"
+    "key":"cc",
+    "side":"left"
   }
 ];
 
 class App extends Component {
+  handleData() {
+    sampleJson[0].side = "right";
+    console.log("change data");
+  }
+
   render() {
     return (
       <div className="App">
@@ -39,7 +48,7 @@ class App extends Component {
           <ChaptersView />
         </div>
         <div className="App-CutView">
-          <CutView cutData={sampleJson}/>
+          <CutView cutData={sampleJson} handleData={this.handleData}/>
         </div>
       </div>
     );
