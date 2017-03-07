@@ -33,15 +33,29 @@ class App extends Component {
     return newData;
   }
 
+  ExportData() {
+    var simpleData = DataJson.data.map(function(data){
+      const dataN = {
+        skit: data.actor + " " + data.emotion,
+        text: data.text
+      }
+      return dataN;
+    });
+    var str = JSON.stringify(simpleData);
+    console.log(str);
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-ChapterView">
           <ChaptersView />
+        <button onClick={this.ExportData}>Export</button>
         </div>
         <div className="App-CutView">
           <CutView cutData={this.state.cutData} handleSideChange={this.handleSideChange}/>
         </div>
+        
       </div>
     );
   }

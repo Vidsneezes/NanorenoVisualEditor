@@ -49,7 +49,7 @@ class CutBlock extends Component {
       <li className="cut-element" >
         <div className={"cut-content-"+this.state.side}>
           <div className="cut-meta">
-            <input className="input-actorname" type="text" placeholder="actorname" value={this.state.actor} onChange={this.handleActorNameChange}/>
+            <input className="<input-actor></input-actor>name" type="text" placeholder="actorname" value={this.state.actor} onChange={this.handleActorNameChange}/>
             <Dropbox className="dropbox-emotion" value={this.state.emotion} list={emotions}/>
             <button className="button-side" onClick={this.handleSideChange}>{"<-->"}</button>
           </div>
