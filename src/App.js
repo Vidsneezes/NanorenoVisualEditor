@@ -36,9 +36,20 @@ const sampleJson = [
 ];
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      cutData: sampleJson
+    }
+    this.handleData = this.handleData.bind(this);
+  }
+
   handleData() {
-    sampleJson[0].side = "right";
-    console.log("change data");
+    sampleJson[0].side = "left";
+    console.log(sampleJson);
+    this.setState({
+      cutData: sampleJson
+    });
   }
 
   render() {
@@ -48,7 +59,7 @@ class App extends Component {
           <ChaptersView />
         </div>
         <div className="App-CutView">
-          <CutView cutData={sampleJson} handleData={this.handleData}/>
+          <CutView cutData={this.state.cutData} handleData={this.handleData}/>
         </div>
       </div>
     );
