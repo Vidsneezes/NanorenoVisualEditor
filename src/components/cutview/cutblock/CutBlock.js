@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
+import Dropbox from '../dropbox/Dropbox.js';
 import './CutBlock.css';
+
+const emotions = [
+  "sad",
+  "happy",
+  "punchline"
+]
 
 class CutBlock extends Component {
   constructor(props){
@@ -41,7 +48,7 @@ class CutBlock extends Component {
         <div className={"cut-content-"+this.state.side}>
           <div className="cut-meta">
             <input className="input-actorname" type="text" placeholder="actorname" value={this.state.actor} onChange={this.handleActorNameChange}/>
-            <input className="input-emotion" type="text" placeholder="emotion" value={this.state.emotion}/>
+            <Dropbox className="dropbox-emotion" value={this.state.emotion} list={emotions}/>
             <button className="button-side" onClick={this.handleSideChange}>{"<-->"}</button>
           </div>
           <div>
