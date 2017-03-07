@@ -57,6 +57,10 @@ class CutBlock extends Component {
             <textarea className="textarea-dialogue" placeholder="dialogue goes here" value={this.state.text} onChange={this.handleTextChange}/>
           </div>
         </div>
+        <div className="cut-addbutton">
+          <button> Add Cut Below </button>
+          <button> Remove Cut </button>
+        </div>
       </li>
     );
   }
