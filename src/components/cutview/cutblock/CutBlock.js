@@ -17,11 +17,12 @@ class CutBlock extends Component {
     return (
       <li className="cut-element" onClick={this.handleClick}>
         <div className={this.props.contentAlign}>
-          <div>
-            <input className="input-actorname" type="text" value="actorname" />
+          <div className="cut-meta">
+            <input className="input-actorname" type="text" placeholder="actorname" value={this.props.cutData.skit}/>
+            <input className="input-emotion" type="text" placeholder="emotion" value={this.props.cutData.emotion}/>
           </div>
           <div>
-            <textarea className="textarea-dialogue" value="This is but a set back in the great war" />
+            <textarea className="textarea-dialogue" value="This is but a set back in the great war" placeholder="dialogue goes here" value={this.props.cutData.text}/>
           </div>
         </div>
       </li>

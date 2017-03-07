@@ -3,19 +3,23 @@ import './CutView.css';
 import CutBlock from './cutblock/CutBlock.js'
 
 class CutView extends Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
+    var count = 0;
+    const cuts = this.props.cutData.map((data)=>
+      <CutBlock key={data.key} cutData={data} contentAlign="cut-content-left"/>
+    );
+
     return (
       <div className="c-content">
         <div className="c-title">
           <h2>Cuts</h2>
         </div>
         <ul className="c-list">
-          <CutBlock contentAlign="cut-content-left"/>
-          <CutBlock contentAlign="cut-content-left"/>
-          <CutBlock contentAlign="cut-content-right"/>
-          <CutBlock contentAlign="cut-content-right"/>
-          <CutBlock contentAlign="cut-content-left"/>
-          <CutBlock contentAlign="cut-content-right"/>
+          {cuts}
         </ul>
       </div>
     );

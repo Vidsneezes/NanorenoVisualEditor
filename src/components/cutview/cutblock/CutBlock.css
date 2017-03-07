@@ -31,7 +31,14 @@
 }
 
 .input-actorname {
+  float: left;
+  margin-left: 26px;
   font-weight: 700;
+}
+
+.input-emotion {
+  float: left;
+  margin-left:20px;
 }
 
 .textarea-dialogue {
