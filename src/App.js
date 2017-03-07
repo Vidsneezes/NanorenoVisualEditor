@@ -9,9 +9,12 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      cutData: DataJson.data
+      cutData: DataJson.data,
+      copyData: ""
     }
     this.handleSideChange = this.handleSideChange.bind(this);
+    this.ExportData = this.ExportData.bind(this);
+    this.AutoSelectTextArea = this.AutoSelectTextArea.bind(this);
   }
 
   handleSideChange(key) {
@@ -42,7 +45,13 @@ class App extends Component {
       return dataN;
     });
     var str = JSON.stringify(simpleData);
-    console.log(str);
+    this.setState({
+      copyData: str
+    });
+  }
+
+  AutoSelectTextArea() {
+    this.refs.copyclipboard.select();
   }
 
   render() {
@@ -50,7 +59,8 @@ class App extends Component {
       <div className="App">
         <div className="App-ChapterView">
           <ChaptersView />
-        <button onClick={this.ExportData}>Export</button>
+          <button onClick={this.ExportData}>Export</button>
+          <textarea ref="copyclipboard" className="copyclipboard" value={this.state.copyData} readOnly="readonly" onFocus={this.AutoSelectTextArea}/>
         </div>
         <div className="App-CutView">
           <CutView cutData={this.state.cutData} handleSideChange={this.handleSideChange}/>
