@@ -13,6 +13,7 @@ class CutBlock extends Component {
     }
     this.handleSideChange = this.handleSideChange.bind(this);
     this.handleActorNameChange = this.handleActorNameChange.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
   }
 
   handleSideChange(){
@@ -28,6 +29,12 @@ class CutBlock extends Component {
     })
   }
 
+  handleTextChange(event) {
+    this.setState({
+      text: event.target.value
+    })
+  }
+
   renderFocused(){
     return (
       <li className="cut-element" >
@@ -38,7 +45,7 @@ class CutBlock extends Component {
             <button className="button-side" onClick={this.handleSideChange}>{"<-->"}</button>
           </div>
           <div>
-            <textarea className="textarea-dialogue" placeholder="dialogue goes here" value={this.state.text}/>
+            <textarea className="textarea-dialogue" placeholder="dialogue goes here" value={this.state.text} onChange={this.handleTextChange}/>
           </div>
         </div>
       </li>
