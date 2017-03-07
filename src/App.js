@@ -17,7 +17,7 @@ class App extends Component {
     this.ExportData = this.ExportData.bind(this);
     this.AutoSelectTextArea = this.AutoSelectTextArea.bind(this);
     this.AddCutBelow = this.AddCutBelow.bind(this);
-    this.RemoveCutCurrent = this.RemoveCutCurrent.bind(this);
+    this.RemoveCurrentCut = this.RemoveCurrentCut.bind(this);
   }
 
   handleSideChange(key) {
@@ -58,14 +58,14 @@ class App extends Component {
       "key":"dfk" + newTotalCuts,
       "side":"right"
     };
-    DataJson.data.splice(keyIndex,0,defaultData);
+    DataJson.data.splice(keyIndex+1,0,defaultData);
     this.setState({
       cutDate: DataJson.data,
       totalCuts: newTotalCuts
     });
   }
 
-  RemoveCutCurrent(key){
+  RemoveCurrentCut(key){
     let keyIndex = -1;
     for(var i =0; i < DataJson.data.length;i++){
       if(DataJson.data[i].key === key){
@@ -94,7 +94,6 @@ class App extends Component {
     this.setState({
       copyData: str
     });
-    this.RemoveCutCurrent("dfk");
   }
 
   AutoSelectTextArea() {
@@ -110,7 +109,11 @@ class App extends Component {
           <textarea ref="copyclipboard" className="copyclipboard" value={this.state.copyData} readOnly="readonly" onFocus={this.AutoSelectTextArea}/>
         </div>
         <div className="App-CutView">
-          <CutView cutData={this.state.cutData} handleSideChange={this.handleSideChange}/>
+          <CutView cutData={this.state.cutData} 
+                   handleSideChange={this.handleSideChange}
+                   addCutBelow={this.AddCutBelow}
+                   removeCurrentCut={this.RemoveCurrentCut}
+                   />
         </div>
         
       </div>

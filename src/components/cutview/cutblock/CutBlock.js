@@ -23,6 +23,8 @@ class CutBlock extends Component {
     this.handleSideChange = this.handleSideChange.bind(this);
     this.handleActorNameChange = this.handleActorNameChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleAddCutBelow = this.handleAddCutBelow.bind(this);
+    this.handleRemoveCurrentCut = this.handleRemoveCurrentCut.bind(this);
   }
 
   handleSideChange(){
@@ -30,6 +32,14 @@ class CutBlock extends Component {
     this.setState({
       side: newData.side
     });
+  }
+
+  handleAddCutBelow(){
+    this.props.addCutBelow(this.state.key);
+  }
+
+  handleRemoveCurrentCut(){
+    this.props.removeCurrentCut(this.state.key);
   }
 
   handleActorNameChange(event) {
@@ -58,8 +68,8 @@ class CutBlock extends Component {
           </div>
         </div>
         <div className="cut-addbutton">
-          <button> Add Cut Below </button>
-          <button> Remove Cut </button>
+          <button onClick={this.handleAddCutBelow}> Add Cut Below </button>
+          <button onClick={this.handleRemoveCurrentCut}> Remove Cut </button>
         </div>
       </li>
     );

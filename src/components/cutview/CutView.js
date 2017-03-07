@@ -10,7 +10,11 @@ class CutView extends Component {
   render() {
     var count = 0;
     const cuts = this.props.cutData.map((data)=>
-      <CutBlock key={data.key} cutData={data} handleSideChange={this.props.handleSideChange}/>
+      <CutBlock key={data.key} 
+                cutData={data} 
+                handleSideChange={this.props.handleSideChange} 
+                addCutBelow={this.props.addCutBelow}
+                removeCurrentCut={this.props.removeCurrentCut}/>
     );
 
     return (
