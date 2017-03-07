@@ -6,6 +6,7 @@
 }
 
 .cut-content-right , .cut-content-left {
+  display: table;
   margin-top: 10px;
   position: relative;
   height: 180px;
@@ -27,4 +28,14 @@
 
 .cut-content-left:hover , .cut-content-right:hover{
   background-color: ghostwhite;
+}
+
+.input-actorname {
+  font-weight: 700;
+}
+
+.textarea-dialogue {
+  width: 88%;
+  height: 50px;
+  resize: none;
 }

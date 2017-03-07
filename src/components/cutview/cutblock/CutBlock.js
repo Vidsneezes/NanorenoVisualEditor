@@ -2,11 +2,33 @@ import React, { Component } from 'react';
 import './CutBlock.css';
 
 class CutBlock extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      focus: false
+    }
+  }
+
   handleClick(){
     console.log("blue berries");
   }
 
-  render() {
+  renderFocused(){
+    return (
+      <li className="cut-element" onClick={this.handleClick}>
+        <div className={this.props.contentAlign}>
+          <div>
+            <input className="input-actorname" type="text" value="actorname" />
+          </div>
+          <div>
+            <textarea className="textarea-dialogue" value="This is but a set back in the great war" />
+          </div>
+        </div>
+      </li>
+    );
+  }
+
+  renderUnfocused(){
     return (
       <li className="cut-element" onClick={this.handleClick}>
         <div className={this.props.contentAlign}>
@@ -15,6 +37,10 @@ class CutBlock extends Component {
         </div>
       </li>
     );
+  }
+
+  render() {
+    return this.renderFocused();
   }
 }
 

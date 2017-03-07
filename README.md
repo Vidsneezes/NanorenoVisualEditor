@@ -1,6 +1,6 @@
 #Visual Novel Editor
 
-A visual novel editor for nanoreno entry https://github.com/denn1s/nanoreno
+A visual novel editor for nanoreno entry https://github.com/denn1s/nanoreno 
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
