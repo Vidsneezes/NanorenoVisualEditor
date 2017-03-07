@@ -3,9 +3,11 @@ import Dropbox from '../dropbox/Dropbox.js';
 import './CutBlock.css';
 
 const emotions = [
+  "neutral",
   "sad",
   "happy",
-  "punchline"
+  "punchline",
+  "worry"
 ]
 
 class CutBlock extends Component {
