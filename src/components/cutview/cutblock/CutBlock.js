@@ -7,7 +7,32 @@ const emotions = [
   "sad",
   "happy",
   "punchline",
-  "worry"
+  "worry",
+  "mad",
+  "madder",
+  "maddest",
+  "happier",
+  "happiest",
+  "super sad",
+  "super angry",
+  "super happy",
+  "uncomfortable",
+  "tire",
+  "exhausted",
+  "intrigued",
+  "very intrigued",
+  "loopy",
+  "wacky",
+  "interested",
+  "guile",
+  "StreetFighter",
+  "welcoming",
+  "lovey",
+  "super lovey",
+  "super duper lovey",
+  "hentai",
+  "hentai XXX",
+  "happy for now"
 ]
 
 class CutBlock extends Component {
