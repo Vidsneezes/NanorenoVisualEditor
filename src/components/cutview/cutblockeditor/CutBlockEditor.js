@@ -56,7 +56,7 @@ class CutBlockEditor extends Component {
     return  (<span>
         <div className="overlay"></div>
         <div className="modal">
-            <button onClick={this.HidBox}>close</button><br></br>
+            <button onClick={this.HidBox}>continue</button><br></br>
             <textarea ref="copyclipboard" className="copyclipboard" value={this.state.text} onChange={this.handleChange} />
         </div>
         </span>);
