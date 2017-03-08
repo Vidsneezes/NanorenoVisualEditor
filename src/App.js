@@ -15,7 +15,6 @@ class App extends Component {
     }
     this.handleSideChange = this.handleSideChange.bind(this);
     this.ExportData = this.ExportData.bind(this);
-    this.AutoSelectTextArea = this.AutoSelectTextArea.bind(this);
     this.AddCutBelow = this.AddCutBelow.bind(this);
     this.RemoveCurrentCut = this.RemoveCurrentCut.bind(this);
     this.handleDataChange = this.handleDataChange.bind(this);
@@ -112,14 +111,13 @@ class App extends Component {
     });
   }
 
-  AutoSelectTextArea() {
-    this.refs.copyclipboard.select();
-  }
+ 
 
   render() {
     return (
       <div className="App">
         <div className="App-CutView">
+         <CutBlockEditor copyData={this.state.copyData}/>
          <CutView cutData={this.state.cutData} 
                    handleSideChange={this.handleSideChange}
                    addCutBelow={this.AddCutBelow}

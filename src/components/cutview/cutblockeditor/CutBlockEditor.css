@@ -10,13 +10,25 @@
 
 
 .modal {
-    width: 600px;
-    height: 500px;
-    position: fixed;
-    left: 50vh;
-    top: 7vh;
-    background-color: #f1c40f;
-    border-radius: 5px;
-    text-align: center;
-    z-index: 11; /* 1px higher than the overlay layer */
+  position: fixed;
+  margin-top: -7px;
+  width: 50%;
+  left: 25%;
+  background-color: navajowhite;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 11; /* 1px higher than the overlay layer */
+  padding: 12px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  
+}
+
+.modal button {
+  width: 80%;
+}
+
+.copyclipboard {
+  width: 80%;
+  resize: none;
+  height: 400px;
 }
