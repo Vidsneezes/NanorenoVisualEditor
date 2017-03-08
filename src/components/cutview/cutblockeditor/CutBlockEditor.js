@@ -44,9 +44,10 @@ class CutBlockEditor extends Component {
   renderExport() {
     return  (<span>
         <div className="overlay"></div>
-        <div className="modal">
-            <button onClick={this.HidBox}>close</button><br></br>
-            <textarea ref="copyclipboard" className="copyclipboard" value={this.props.copyData} readOnly="readonly" onFocus={this.AutoSelectTextArea}/>
+        <div className="modal-export">
+          <h2>Export</h2>
+          <button onClick={this.HidBox}>close</button><br></br>
+          <textarea ref="copyclipboard" className="copyclipboard" value={this.props.copyData} readOnly="readonly" onFocus={this.AutoSelectTextArea}/>
         </div>
         </span>);
   }
@@ -55,9 +56,10 @@ class CutBlockEditor extends Component {
   renderImport() {
     return  (<span>
         <div className="overlay"></div>
-        <div className="modal">
-            <button onClick={this.HidBox}>continue</button><br></br>
-            <textarea ref="copyclipboard" className="copyclipboard" value={this.state.text} onChange={this.handleChange} />
+        <div className="modal-import">
+          <h2>Import</h2>
+          <button onClick={this.HidBox}>continue</button><br></br>
+          <textarea ref="copyclipboard" className="copyclipboard" value={this.state.text} onChange={this.handleChange} />
         </div>
         </span>);
   }

@@ -9,17 +9,26 @@
 }
 
 
-.modal {
+.modal-import, .modal-export {
   position: fixed;
   margin-top: -7px;
   width: 50%;
   left: 25%;
-  background-color: navajowhite;
   border-radius: 5px;
   text-align: center;
   z-index: 11; /* 1px higher than the overlay layer */
   padding: 12px 0px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-import {
+  background-color: lightblue;
+  color: lightslategray;
+}
+
+.modal-export {
+  background-color: lightgreen;
+  color: lightslategray;
   
 }
 
