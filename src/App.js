@@ -11,13 +11,16 @@ class App extends Component {
     this.state = {
       cutData: DataJson.data,
       copyData: "",
-      totalCuts: 900
+      totalCuts: 900,
     }
     this.handleSideChange = this.handleSideChange.bind(this);
     this.ExportData = this.ExportData.bind(this);
     this.AddCutBelow = this.AddCutBelow.bind(this);
     this.RemoveCurrentCut = this.RemoveCurrentCut.bind(this);
     this.handleDataChange = this.handleDataChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.ImportData = this.ImportData.bind(this);
+    this.OpenImportDialog = this.OpenImportDialog.bind(this);
   }
 
   handleSideChange(key) {
@@ -74,7 +77,7 @@ class App extends Component {
     };
     DataJson.data.splice(keyIndex+1,0,defaultData);
     this.setState({
-      cutDate: DataJson.data,
+      cutData: DataJson.data,
       totalCuts: newTotalCuts
     });
   }
@@ -92,7 +95,39 @@ class App extends Component {
     }
     DataJson.data.splice(keyIndex,1);
     this.setState({
-      cutDate: DataJson.data
+      cutData: DataJson.data
+    });
+  }
+
+  OpenImportDialog() {
+    this.importDataRef.DisplayBox();
+  }
+
+  ImportData() {
+    var str = this.importDataRef.copyClipBoard();
+    if(str.length == 0)
+    {
+      return;
+    }
+    var json = JSON.parse(str);
+    var simpleData = json.map(function(data,index){
+      var n = data.skit.split(" ");
+      if(n.length == 1){
+        n.push("undefined");
+      }
+      const dataN =  {
+        actor: n[0],
+        emotion: n[1],
+        text: data.text,
+        key:"vv"+index,
+        side:data.direction
+      }
+      return dataN;
+    });
+    DataJson.data = simpleData;
+    console.log(DataJson.data);
+    this.setState({
+      cutData: DataJson.data
     });
   }
 
@@ -112,17 +147,25 @@ class App extends Component {
     this.cutEditorRef.DisplayBox();
   }
 
+  handleChange(event){
+    this.setState({
+      importText:event.target.value
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-CutView">
-         <CutBlockEditor ref={(el) => {this.cutEditorRef = el;}} copyData={this.state.copyData}/>
+         <CutBlockEditor ref={(el) => {this.cutEditorRef = el;}} mode={"export"} copyData={this.state.copyData}/>
+         <CutBlockEditor ref={(el) => {this.importDataRef = el;}} mode={"import"} copyData={this.state.copyData} onClose={this.ImportData}/>
          <CutView cutData={this.state.cutData} 
                    handleSideChange={this.handleSideChange}
                    addCutBelow={this.AddCutBelow}
                    removeCurrentCut={this.RemoveCurrentCut}
                    handleDataChange={this.handleDataChange}
                    exportData={this.ExportData}
+                   importData={this.OpenImportDialog}
                    />
         </div>
       </div>

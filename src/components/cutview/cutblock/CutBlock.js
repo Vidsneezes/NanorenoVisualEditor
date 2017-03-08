@@ -3,6 +3,7 @@ import Dropbox from '../dropbox/Dropbox.js';
 import './CutBlock.css';
 
 const emotions = [
+  "undefined",
   "neutral",
   "sad",
   "happy",
