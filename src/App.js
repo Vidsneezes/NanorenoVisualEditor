@@ -101,7 +101,8 @@ class App extends Component {
     var simpleData = DataJson.data.map(function(data){
       const dataN = {
         skit: data.actor + " " + data.emotion,
-        text: data.text
+        text: data.text,
+        side: data.side
       }
       return dataN;
     });
