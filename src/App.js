@@ -101,7 +101,7 @@ class App extends Component {
       const dataN = {
         skit: data.actor + " " + data.emotion,
         text: data.text,
-        side: data.side
+        direction: data.side
       }
       return dataN;
     });
