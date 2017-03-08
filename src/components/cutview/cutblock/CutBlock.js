@@ -20,6 +20,7 @@ class CutBlock extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleAddCutBelow = this.handleAddCutBelow.bind(this);
     this.handleRemoveCurrentCut = this.handleRemoveCurrentCut.bind(this);
+    this.focusOnMe = this.focusOnMe.bind(this);
   }
 
   handleSideChange(){
@@ -37,9 +38,14 @@ class CutBlock extends Component {
   handleChange(event) {
     this.props.handleDataChange(event.target.name,this.state.key,event.target.value);
   }
+
+  focusOnMe(){
+    this.refs.premium.scrollIntoView({behavior:"smooth"});
+  }
+
   renderFocused(){
     return (
-      <li className="cut-element" >
+      <li ref="premium" className="cut-element" >
         <div className={"cut-content-"+this.props.cutData.side}>
           <div className="cut-meta">
             <input name="actor" className="<input-actor></input-actor>name" type="text" placeholder="actorname" value={this.props.cutData.actor} onChange={this.handleChange}/>

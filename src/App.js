@@ -109,15 +109,14 @@ class App extends Component {
     this.setState({
       copyData: str
     });
+    this.cutEditorRef.DisplayBox();
   }
-
- 
 
   render() {
     return (
       <div className="App">
         <div className="App-CutView">
-         <CutBlockEditor copyData={this.state.copyData}/>
+         <CutBlockEditor ref={(el) => {this.cutEditorRef = el;}} copyData={this.state.copyData}/>
          <CutView cutData={this.state.cutData} 
                    handleSideChange={this.handleSideChange}
                    addCutBelow={this.AddCutBelow}

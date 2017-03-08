@@ -8,10 +8,24 @@ class CutBlockEditor extends Component {
       visible: false
     }
     this.AutoSelectTextArea = this.AutoSelectTextArea.bind(this);
+    this.HidBox = this.HidBox.bind(this);
+    this.DisplayBox = this.DisplayBox.bind(this);
   }
 
   AutoSelectTextArea() {
     this.refs.copyclipboard.select();
+  }
+
+  DisplayBox(){
+    this.setState({
+      visible: true
+    });
+  }
+
+  HidBox(){
+    this.setState({
+      visible: false
+    })
   }
 
   render() {
@@ -21,7 +35,7 @@ class CutBlockEditor extends Component {
         <span>
         <div className="overlay"></div>
         <div className="modal">
-            <button>close</button><br></br>
+            <button onClick={this.HidBox}>close</button><br></br>
             <textarea ref="copyclipboard" className="copyclipboard" value={this.props.copyData} readOnly="readonly" onFocus={this.AutoSelectTextArea}/>
         </div>
         </span>
