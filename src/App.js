@@ -118,20 +118,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-ChapterView">
-          <ChaptersView />
-          <button onClick={this.ExportData}>Export</button>
-          <textarea ref="copyclipboard" className="copyclipboard" value={this.state.copyData} readOnly="readonly" onFocus={this.AutoSelectTextArea}/>
-        </div>
         <div className="App-CutView">
-          <CutView cutData={this.state.cutData} 
+         <CutView cutData={this.state.cutData} 
                    handleSideChange={this.handleSideChange}
                    addCutBelow={this.AddCutBelow}
                    removeCurrentCut={this.RemoveCurrentCut}
                    handleDataChange={this.handleDataChange}
+                   exportData={this.ExportData}
                    />
         </div>
-        
       </div>
     );
   }

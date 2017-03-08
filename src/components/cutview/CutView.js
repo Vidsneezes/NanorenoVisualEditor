@@ -17,7 +17,8 @@ class CutView extends Component {
     return (
       <div className="c-content">
         <div className="c-title">
-          <h2>Cuts</h2>
+          <h2>Cuts Editor</h2>
+          <button onClick={this.props.exportData}>Export</button>
         </div>
         <ul className="c-list">
           {cuts}

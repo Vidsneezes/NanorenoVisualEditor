@@ -8,7 +8,7 @@ class CutBlockEditor extends Component {
         <div className="overlay"></div>
         <div className="modal">
             <button>close</button>
-            <h1>Edit Cut</h1>
+            <textarea ref="copyclipboard" className="copyclipboard" value={this.state.copyData} readOnly="readonly" onFocus={this.AutoSelectTextArea}/>
         </div>
       </div>
     );
