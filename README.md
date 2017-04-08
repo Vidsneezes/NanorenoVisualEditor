@@ -5,6 +5,8 @@ A visual novel editor for nanoreno entry https://github.com/denn1s/nanoreno
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+Try it out over at https://maxivn-editor9400.herokuapp.com/
+
 ## Available Scripts
 
 In the project directory, you can run:
